@@ -2,3 +2,15 @@ a {
   text-decoration: none !important;
   color: inherit !important;
 }
+
+.home {
+  display: flex;
+}
+
+.product_container {
+  display: flex;
+  width: 78%;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

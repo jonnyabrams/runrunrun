@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { Runner } from "../typings"
+
+import RunnerCard from "../components/RunnerCard";
+import { Runner } from "../typings";
 
 const Home = () => {
   const [runners, setRunners] = useState<Runner[]>([]);
@@ -19,13 +21,16 @@ const Home = () => {
 
     fetchRunners();
   }, []);
-  return (
-    <div className="product_container">
-      {runners.map((runner: Runner) => (
-        <span>{runner.firstName}</span>
-      ))}
-    </div>
-  )
-}
 
-export default Home
+  return (
+    <div className="home">
+      <div className="product_container">
+        {runners.map((runner: Runner, i: number) => (
+          <RunnerCard runner={runner} key={i} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Home;
