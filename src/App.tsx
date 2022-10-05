@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
+import styled from "styled-components";
+
+const Container = styled.div`
+  color: red;
+`;
 
 const App = () => {
-  return (
-    <div className="App">
-      
-    </div>
-  );
-}
+  return <Container>Hello</Container>;
+};
 
 export default App;
