@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
-import { Container, FormControl, Navbar } from "react-bootstrap";
+import {
+  Container,
+  FormControl,
+  Navbar,
+  Button,
+  Nav,
+  Badge,
+  CarouselItem,
+} from "react-bootstrap";
 
 const Header = () => {
   return (
-    <div>
       <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
         <Container>
-          <Navbar.Brand>
-            RunRunRun
-          </Navbar.Brand>
+          <Navbar.Brand>RunRunRun</Navbar.Brand>
           <Navbar.Text className="search">
             <FormControl
               style={{ width: 500 }}
@@ -16,9 +21,13 @@ const Header = () => {
               className="m-auto"
             />
           </Navbar.Text>
+          <Nav>
+            <Button className="btn btn-primary">
+              Organiser Login
+            </Button>
+          </Nav>
         </Container>
       </Navbar>
-    </div>
   );
 };
 
