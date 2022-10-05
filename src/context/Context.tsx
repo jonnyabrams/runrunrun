@@ -30,8 +30,6 @@ const Context = ({ children }: { children: any }) => {
     fetchRunners();
   }, []);
 
-  console.log(runners)
-
   const [state, dispatch] = useReducer(runnersReducer, {
     runners: runners,
   });
