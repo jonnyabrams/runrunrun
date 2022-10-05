@@ -1,11 +1,12 @@
-import styled from "styled-components";
-
-const Container = styled.div`
-  color: red;
-`;
+import "./App.css";
+import Header from "./components/Header";
 
 const App = () => {
-  return <Container>Hello</Container>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default App;
