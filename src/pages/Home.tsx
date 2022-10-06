@@ -8,12 +8,12 @@ import { Runner } from "../typings";
 const Home = () => {
   const { runners } = RunnersState()
   
-  if (runners.length === 0) return <h2>No bookings found</h2>
+  if (runners.length === 0) return <h2>Looking for bookings...</h2>
 
   return (
     <div className="home">
       <Filters />
-      <div className="product_container">
+      <div className="runners_container">
         {runners.map((runner: Runner, i: number) => (
           <RunnerCard runner={runner} key={i} />
         ))}

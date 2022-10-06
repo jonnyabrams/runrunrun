@@ -11,7 +11,7 @@ type Props = {
 const RunnerCard = ({ runner }: Props) => {
   return (
     <div>
-      <Card>
+      <Card style={{ height: "300px", width: "300px", marginBottom: "20px"}}>
         <Card.Body>
           <Card.Title>
             {capitalise(runner.firstName)} {capitalise(runner.lastName)}
