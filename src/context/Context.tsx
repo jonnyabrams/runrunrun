@@ -30,13 +30,55 @@ const Context = ({ children }: { children: any }) => {
     fetchRunners();
   }, []);
 
+  // organisers
+
+  let organisersMap = runners.map((runner) => ({
+    title: runner.organiserTitle,
+    id: runner.organiserId,
+  }));
+
+  let organisers = [
+    ...new Map(organisersMap.map((org) => [org["title"], org])).values(),
+  ];
+
+  // events
+
+  let eventsMap = runners.map((runner) => ({
+    title: runner.eventTitle,
+    id: runner.eventId,
+    organiser: runner.organiserTitle,
+    organiserId: runner.organiserId,
+  }));
+
+  let events = [
+    ...new Map(eventsMap.map((event) => [event["title"], event])).values(),
+  ];
+
+  // races
+
+  let racesMap = runners.map((runner) => ({
+    title: runner.raceTitle,
+    id: runner.raceId,
+    event: runner.eventTitle,
+    eventId: runner.eventId,
+    organiser: runner.organiserTitle,
+    organiserId: runner.organiserId,
+  }));
+
+  let races = [
+    ...new Map(racesMap.map((race) => [race["id"], race])).values(),
+  ];
+
   const [state, dispatch] = useReducer(runnersReducer, {
     runners: runners,
+    organisers: organisers,
+    events: events,
+    races: races,
   });
 
   return (
-    <Runners.Provider value={{ runners, state, dispatch }}>
-      { children }
+    <Runners.Provider value={{ runners, organisers, events, races, state, dispatch }}>
+      {children}
     </Runners.Provider>
   );
 };
