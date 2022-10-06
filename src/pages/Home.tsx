@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Filters from "../components/Filters";
 
 import RunnerCard from "../components/RunnerCard";
 import { Runner } from "../typings";
@@ -24,6 +25,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Filters />
       <div className="product_container">
         {runners.map((runner: Runner, i: number) => (
           <RunnerCard runner={runner} key={i} />
