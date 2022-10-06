@@ -7,7 +7,8 @@ import { Runner } from "../typings";
 
 const Home = () => {
   const { runners } = RunnersState()
-  const [error, setError] = useState<string>("");
+  
+  if (runners.length === 0) return <h2>No bookings found</h2>
 
   return (
     <div className="home">
