@@ -9,7 +9,6 @@ type Props = {
 };
 
 const RunnerCard = ({ runner }: Props) => {
-  console.log(runner);
   return (
     <div>
       <Card style={{ height: "300px", width: "300px", marginBottom: "20px" }}>
@@ -24,7 +23,7 @@ const RunnerCard = ({ runner }: Props) => {
           <Card.Text>Race: {runner.raceTitle}</Card.Text>
           <Card.Text>Event: {runner.eventTitle}</Card.Text>
           <Card.Text>Event Date: {moment(runner.raceStartDate).format("MMMM Do YYYY h:mm a")}</Card.Text>
-          <Card.Link>View more information</Card.Link>
+          <Card.Link href={`/booking/${runner.id}`}>View more information</Card.Link>
         </Card.Body>
       </Card>
     </div>

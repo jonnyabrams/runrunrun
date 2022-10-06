@@ -35,7 +35,7 @@ const Context = ({ children }: { children: any }) => {
   });
 
   return (
-    <Runners.Provider value={{ state, dispatch }}>
+    <Runners.Provider value={{ runners, state, dispatch }}>
       { children }
     </Runners.Provider>
   );
