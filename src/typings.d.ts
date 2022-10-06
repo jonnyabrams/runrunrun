@@ -21,3 +21,8 @@ export type Runner = {
   ticketId: string;
   ticketTitle: string;
 };
+
+export type Organiser = {
+  title: string;
+  id: number;
+}
