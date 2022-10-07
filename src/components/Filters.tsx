@@ -22,6 +22,7 @@ const Filters = () => {
             })
           }
           checked={byConfirmed}
+          disabled={byPending}
         />
       </span>
       <span>
@@ -37,6 +38,7 @@ const Filters = () => {
             })
           }
           checked={byPending}
+          disabled={byConfirmed}
         />
       </span>
       <span>Sort by ticket price:</span>
