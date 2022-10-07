@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Organiser from './pages/Organiser';
 import OrganiserLogin from './pages/OrganiserLogin';
 import Race from './pages/Race';
+import AllBookings from './pages/AllBookings';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={ <Home /> } />
+          <Route path="/bookings" element={ <AllBookings /> } />
           <Route path="/login" element={ <OrganiserLogin /> } />
           <Route path="/organiser/:id" element={ <Organiser /> } />
           <Route path="/booking/:id" element={ <Booking /> } />

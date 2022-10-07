@@ -5,6 +5,45 @@
 
 .home {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.home > h1 {
+  margin-bottom: 30px;
+}
+
+.home_buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home_organiser_button {
+  margin-right: 50px;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(0, 123, 255);
+}
+
+.home_customer_button {
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(49, 128, 0);
+}
+
+.home_organiser_button:hover,
+.home_customer_button:hover {
+  transform: scale(1.1);
+  -webkit-box-shadow: 8px 12px 13px -2px rgba(0, 0, 0, 0.44);
+  box-shadow: 8px 12px 13px -2px rgba(0, 0, 0, 0.44);
+}
+
+.all_bookings {
+  display: flex;
 }
 
 .filters {
