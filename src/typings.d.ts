@@ -22,7 +22,25 @@ export type Runner = {
   ticketTitle: string;
 };
 
-export type Organiser = {
+export type OrganiserType = {
   title: string;
   id: number;
+};
+
+export type EventType = {
+  title: string;
+  id: number;
+  organiser: string;
+  organiserId: number;
+  date: string;
+};
+
+export type RaceType = {
+  title: string;
+  id: string;
+  event: string;
+  eventId: number;
+  organiser: string;
+  organiserId: number;
+  date: string;
 }

@@ -24,7 +24,7 @@ const Header = () => {
           />
         </Navbar.Text>
         <Nav>
-          <Button className="btn btn-primary">Organiser Login</Button>
+          <Link to="/login"><Button className="btn btn-primary">Organiser Login</Button></Link>
         </Nav>
       </Container>
     </Navbar>

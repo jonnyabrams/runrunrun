@@ -48,6 +48,7 @@ const Context = ({ children }: { children: any }) => {
     id: runner.eventId,
     organiser: runner.organiserTitle,
     organiserId: runner.organiserId,
+    date: runner.raceStartDate,
   }));
 
   let events = [
@@ -63,11 +64,10 @@ const Context = ({ children }: { children: any }) => {
     eventId: runner.eventId,
     organiser: runner.organiserTitle,
     organiserId: runner.organiserId,
+    date: runner.raceStartDate,
   }));
 
-  let races = [
-    ...new Map(racesMap.map((race) => [race["id"], race])).values(),
-  ];
+  let races = [...new Map(racesMap.map((race) => [race["id"], race])).values()];
 
   const [state, dispatch] = useReducer(runnersReducer, {
     runners: runners,
@@ -77,7 +77,9 @@ const Context = ({ children }: { children: any }) => {
   });
 
   return (
-    <Runners.Provider value={{ runners, organisers, events, races, state, dispatch }}>
+    <Runners.Provider
+      value={{ runners, organisers, events, races, state, dispatch }}
+    >
       {children}
     </Runners.Provider>
   );

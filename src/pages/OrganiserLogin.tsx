@@ -1,7 +1,7 @@
 import { Dropdown } from "react-bootstrap";
 
 import { RunnersState } from "../context/Context";
-import { Organiser } from "../typings";
+import { OrganiserType } from "../typings";
 
 const OrganiserLogin = () => {
   const { organisers } = RunnersState()
@@ -14,7 +14,7 @@ const OrganiserLogin = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          {organisers.map((org: Organiser) => (
+          {organisers.map((org: OrganiserType) => (
             <Dropdown.Item href={`/organiser/${org.id}`}>{org.title}</Dropdown.Item>
           ))}
         </Dropdown.Menu>

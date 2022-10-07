@@ -84,4 +84,29 @@ a {
   align-items: center;
   justify-content: center;
   padding: 10px;
+  margin-top: 60px;
+}
+
+.organiser_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.organiser_container > h1 {
+  margin: 30px 0 30px 0;
+}
+
+.organiser_container > h2 {
+  margin-bottom: 30px;
+}
+
+.events_container {
+  display: flex;
+  width: 78%;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
