@@ -6,6 +6,7 @@ import Booking from './pages/Booking';
 import Home from './pages/Home';
 import Organiser from './pages/Organiser';
 import OrganiserLogin from './pages/OrganiserLogin';
+import Race from './pages/Race';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/login" element={ <OrganiserLogin /> } />
           <Route path="/organiser/:id" element={ <Organiser /> } />
           <Route path="/booking/:id" element={ <Booking /> } />
+          <Route path="/race/:id" element={ <Race /> } />
         </Routes> 
       </div>
     </Router>

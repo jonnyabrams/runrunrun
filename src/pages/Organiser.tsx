@@ -26,7 +26,7 @@ const Organiser = () => {
     <div className="organiser_container">
       <h1>Hello, {organiser?.title || <CircularProgress size={25} />}!</h1>
       <h2>Your Overall Takings: £{(overallTakings / 100).toFixed(2)}</h2>
-      <h3>Your Events:</h3>
+      <h3>Your Events...</h3>
       <div className="events_container">
         {organiserEvents.map((event: EventType) => (
           <EventCard event={event} />

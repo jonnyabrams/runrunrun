@@ -3,6 +3,7 @@ import moment from "moment";
 
 import { EventType, RaceType, Runner } from "../typings";
 import { RunnersState } from "../context/Context";
+import { Link } from "react-router-dom";
 
 type Props = {
   event: EventType;
@@ -30,7 +31,7 @@ const EventCard = ({ event }: Props) => {
           </Card.Subtitle>
           <Card.Text>Total Takings: £{(totalTakings / 100).toFixed(2)}</Card.Text>
           <hr></hr>
-          <div className="event_card_races">{eventRaces.map((race: RaceType) => (<p>{race.title}</p>))}</div>
+          <div className="event_card_races">{eventRaces.map((race: RaceType) => (<Link to={`/race/${race.id}`}><p className="race_link">{race.title}</p></Link>))}</div>
         </Card.Body>
       </Card>
     </div>

@@ -1,7 +1,7 @@
-a {
+/* a {
   text-decoration: none !important;
   color: inherit !important;
-}
+} */
 
 .home {
   display: flex;
@@ -109,4 +109,23 @@ a {
   padding: 20px;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.race_link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.race_container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.race_container > h1,
+h2,
+h3 {
+  padding: 20px;
 }

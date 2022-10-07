@@ -14,7 +14,9 @@ const Header = () => {
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
         <Navbar.Brand>
-          <Link to="/">RunRunRun</Link>
+          <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
+            RunRunRun
+          </Link>
         </Navbar.Brand>
         <Navbar.Text className="search">
           <FormControl
@@ -24,7 +26,9 @@ const Header = () => {
           />
         </Navbar.Text>
         <Nav>
-          <Link to="/login"><Button className="btn btn-primary">Organiser Login</Button></Link>
+          <Link to="/login">
+            <Button className="btn btn-primary">Organiser Portal</Button>
+          </Link>
         </Nav>
       </Container>
     </Navbar>
