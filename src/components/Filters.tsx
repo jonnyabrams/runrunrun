@@ -16,9 +16,9 @@ const Filters = () => {
           name="group1"
           type="checkbox"
           id={`inline-1`}
-          onChange={() => 
+          onChange={() =>
             filterDispatch({
-              type: "FILTER_BY_CONFIRMED"
+              type: "FILTER_BY_CONFIRMED",
             })
           }
           checked={byConfirmed}
@@ -32,9 +32,9 @@ const Filters = () => {
           name="group1"
           type="checkbox"
           id={`inline-2`}
-          onChange={() => 
+          onChange={() =>
             filterDispatch({
-              type: "FILTER_BY_PENDING"
+              type: "FILTER_BY_PENDING",
             })
           }
           checked={byPending}
@@ -74,7 +74,16 @@ const Filters = () => {
           checked={sort === "highToLow" ? true : false}
         />
       </span>
-      <Button variant="light">Clear Filters</Button>
+      <Button
+        variant="light"
+        onClick={() =>
+          filterDispatch({
+            type: "CLEAR_FILTERS",
+          })
+        }
+      >
+        Clear Filters
+      </Button>
     </div>
   );
 };
