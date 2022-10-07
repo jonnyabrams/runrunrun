@@ -169,6 +169,13 @@ h3 {
   padding: 20px;
 }
 
+.browse_events {
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 /* Media Queries */
 @media (max-width: 771px) {
   .filters {

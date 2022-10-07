@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import { RunnersState } from "../context/Context";
 import Filters from "../components/Filters";
 import RunnerCard from "../components/RunnerCard";
