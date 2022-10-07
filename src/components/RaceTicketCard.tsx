@@ -1,5 +1,6 @@
 import moment from "moment";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
+
 import { RaceType } from "../typings";
 
 type Props = {
@@ -12,9 +13,11 @@ const RaceTicketCard = ({ race }: Props) => {
       <Card.Body>
         <Card.Title>{race.title}</Card.Title>
         <Card.Subtitle style={{ paddingTop: 15, paddingBottom: 15 }}>
-          {moment(race.date).format("MMMM Do YYYY h:mm a")}
+          {race.event}
         </Card.Subtitle>
-        <Card.Text></Card.Text>
+        <Card.Text>{moment(race.date).format("MMMM Do YYYY h:mm a")}</Card.Text>
+        <Card.Text>£{(race.price / 100).toFixed(2)}</Card.Text>
+        <Button>Add to Cart</Button>
       </Card.Body>
     </Card>
   );

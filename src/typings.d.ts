@@ -43,4 +43,5 @@ export type RaceType = {
   organiser: string;
   organiserId: number;
   date: string;
+  price: number;
 }
