@@ -78,7 +78,7 @@ const Context = ({ children }: { children: any }) => {
 
   return (
     <Runners.Provider
-      value={{ runners, organisers, events, races, state, dispatch }}
+      value={{ runners, organisers, events, races, state, dispatch, error }}
     >
       {children}
     </Runners.Provider>

@@ -7,7 +7,7 @@ import EventCard from "../components/EventCard";
 
 const Organiser = () => {
   const { id } = useParams();
-  const { organisers, events, runners } = RunnersState();
+  const { organisers, events, runners, error } = RunnersState();
 
   const organiser = organisers.find(
     (org: OrganiserType) => org.id === parseInt(id!)
@@ -21,6 +21,8 @@ const Organiser = () => {
     .filter((runner: Runner) => runner.organiserTitle === organiser.title)
     .map((runner: Runner) => runner.ticketPrice.value)
     .reduce((a: number, b: number) => a + b, 0);
+
+  if (error) return error.message;
 
   return (
     <div className="organiser_container">

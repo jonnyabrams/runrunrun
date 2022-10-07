@@ -8,13 +8,15 @@ import { capitalise } from "../helpers";
 
 const Race = () => {
   const { id } = useParams();
-  const { runners, races } = RunnersState();
+  const { runners, races, error } = RunnersState();
 
   const race = races.find((item: RaceType) => item.id === id);
 
   const raceStartlist = runners.filter(
     (runner: Runner) => runner.raceId === id
   );
+
+  if (error) return error.message;
 
   return (
     <div className="race_container">
