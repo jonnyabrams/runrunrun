@@ -7,7 +7,7 @@ import {
 } from "react";
 
 import { Runner } from "../typings";
-import { runnersReducer } from "./Reducers";
+import { runnersReducer, filterReducer } from "./Reducers";
 
 const Runners = createContext<any>(null);
 
@@ -69,6 +69,8 @@ const Context = ({ children }: { children: any }) => {
 
   let races = [...new Map(racesMap.map((race) => [race["id"], race])).values()];
 
+  // reducers
+
   const [state, dispatch] = useReducer(runnersReducer, {
     runners: runners,
     organisers: organisers,
@@ -76,9 +78,24 @@ const Context = ({ children }: { children: any }) => {
     races: races,
   });
 
+  const [filterState, filterDispatch] = useReducer(filterReducer, {
+    byStatus: false,
+    searchQuery: "",
+  });
+
   return (
     <Runners.Provider
-      value={{ runners, organisers, events, races, state, dispatch, error }}
+      value={{
+        runners,
+        organisers,
+        events,
+        races,
+        state,
+        filterState,
+        filterDispatch,
+        dispatch,
+        error,
+      }}
     >
       {children}
     </Runners.Provider>

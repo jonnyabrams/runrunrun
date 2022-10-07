@@ -6,7 +6,27 @@ import RunnerCard from "../components/RunnerCard";
 import { Runner } from "../typings";
 
 const Home = () => {
-  const { runners, error } = RunnersState();
+  const {
+    runners,
+    error,
+    filterState: { sort, byStatus, searchQuery },
+  } = RunnersState();
+
+  const transformRunners = () => {
+    let sortedRunners = runners;
+
+    if (sort) {
+      sortedRunners = sortedRunners.sort((a: Runner, b: Runner) =>
+        sort === "lowToHigh"
+          ? a.ticketPrice.value - b.ticketPrice.value
+          : b.ticketPrice.value - a.ticketPrice.value
+      );
+    }
+
+    return sortedRunners;
+  };
+
+  console.log(transformRunners());
 
   if (error) return error.message;
 
@@ -16,7 +36,7 @@ const Home = () => {
     <div className="home">
       <Filters />
       <div className="runners_container">
-        {runners.map((runner: Runner, i: number) => (
+        {transformRunners().map((runner: Runner, i: number) => (
           <RunnerCard runner={runner} key={i} />
         ))}
       </div>

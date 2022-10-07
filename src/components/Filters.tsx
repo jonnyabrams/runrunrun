@@ -1,6 +1,11 @@
 import { Button, Form, FormCheck } from "react-bootstrap";
+import { RunnersState } from "../context/Context";
 
 const Filters = () => {
+  const {
+    filterState: { sort, byStatus, searchQuery },
+    filterDispatch,
+  } = RunnersState();
   return (
     <div className="filters">
       <span>Filter by status:</span>
@@ -10,7 +15,7 @@ const Filters = () => {
           label="Show Confirmed"
           name="group1"
           type="checkbox"
-          id={`inline-3`}
+          id={`inline-1`}
         />
       </span>
       <span>
@@ -19,7 +24,7 @@ const Filters = () => {
           label="Show Pending"
           name="group1"
           type="checkbox"
-          id={`inline-4`}
+          id={`inline-2`}
         />
       </span>
       <span>Sort by ticket price:</span>
@@ -29,7 +34,14 @@ const Filters = () => {
           label="Cheapest"
           name="group1"
           type="radio"
-          id={`inline-1`}
+          id={`inline-3`}
+          onChange={() =>
+            filterDispatch({
+              type: "SORT_BY_PRICE",
+              payload: "lowToHigh",
+            })
+          }
+          checked={sort === "lowToHigh" ? true : false}
         />
       </span>
       <span>
@@ -38,14 +50,17 @@ const Filters = () => {
           label="Most Expensive"
           name="group1"
           type="radio"
-          id={`inline-2`}
+          id={`inline-4`}
+          onChange={() =>
+            filterDispatch({
+              type: "SORT_BY_PRICE",
+              payload: "highToLow",
+            })
+          }
+          checked={sort === "highToLow" ? true : false}
         />
       </span>
-      <Button
-        variant="light"
-      >
-        Clear Filters
-      </Button>
+      <Button variant="light">Clear Filters</Button>
     </div>
   );
 };
