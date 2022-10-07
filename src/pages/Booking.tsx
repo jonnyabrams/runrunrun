@@ -75,7 +75,7 @@ const Booking = () => {
 
       <div className="booking_container_right">
         <img src="/default.jpeg" alt="Image" />
-        <button onClick={() => {}}>View on race startlist</button>
+        <button onClick={() => navigate(`/race/${runner.raceId}`)}>View on race startlist</button>
       </div>
     </div>
   );
