@@ -16,6 +16,10 @@ const Race = () => {
     (runner: Runner) => runner.raceId === id
   );
 
+  const totalTakings = raceStartlist
+    .map((item: Runner) => item.ticketPrice.value)
+    .reduce((a: number, b: number) => a + b, 0);
+
   if (error) return error.message;
 
   return (
@@ -26,7 +30,7 @@ const Race = () => {
             {race.event}: {race.title}
           </h1>
           <h2>{moment(race.date).format("MMMM Do YYYY h:mm a")}</h2>
-          <h3>Race Startlist:</h3>
+          <h3>Total Takings: £{(totalTakings / 100).toFixed(2)}</h3>
           {raceStartlist.map((runner: Runner, i: number) => (
             <p key={i}>
               <Link to={`/booking/${runner.id}`}>
