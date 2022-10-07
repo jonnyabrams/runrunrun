@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
-import {
-  Container,
-  FormControl,
-  Navbar,
-  Button,
-  Nav,
-  Badge,
-  CarouselItem,
-} from "react-bootstrap";
+import { Container, FormControl, Navbar, Button, Nav } from "react-bootstrap";
+
+import { RunnersState } from "../context/Context";
 
 const Header = () => {
+  const { dispatch, filterDispatch } = RunnersState();
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
@@ -23,6 +18,12 @@ const Header = () => {
             style={{ width: 500 }}
             placeholder="Search by name, race title, event or organiser..."
             className="m-auto"
+            onChange={(e) => {
+              filterDispatch({
+                type: "FILTER_BY_SEARCH",
+                payload: e.target.value,
+              });
+            }}
           />
         </Navbar.Text>
         <Nav>

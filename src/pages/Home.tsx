@@ -35,6 +35,17 @@ const Home = () => {
       );
     }
 
+    if (searchQuery) {
+      sortedRunners = sortedRunners.filter(
+        (runner: Runner) =>
+          runner.firstName.toLowerCase().includes(searchQuery) ||
+          runner.lastName.toLowerCase().includes(searchQuery) ||
+          runner.eventTitle.toLowerCase().includes(searchQuery) ||
+          runner.raceTitle.toLowerCase().includes(searchQuery) ||
+          runner.organiserTitle.toLowerCase().includes(searchQuery)
+      );
+    }
+
     return sortedRunners;
   };
 
