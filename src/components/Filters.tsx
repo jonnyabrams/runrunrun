@@ -3,7 +3,7 @@ import { RunnersState } from "../context/Context";
 
 const Filters = () => {
   const {
-    filterState: { sort, byConfirmed, byPending, searchQuery },
+    filterState: { sort, byConfirmed, byPending },
     filterDispatch,
   } = RunnersState();
   return (

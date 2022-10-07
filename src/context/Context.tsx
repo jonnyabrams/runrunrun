@@ -82,6 +82,7 @@ const Context = ({ children }: { children: any }) => {
     byConfirmed: false,
     byPending: false,
     searchQuery: "",
+    sort: "",
   });
 
   return (
