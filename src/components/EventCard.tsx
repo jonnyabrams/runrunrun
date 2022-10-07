@@ -19,8 +19,6 @@ const EventCard = ({ event }: Props) => {
 
   const eventRaces = races.filter((race: RaceType) => race.event === event.title)
 
-  console.log(eventRaces)
-
   return (
     <div>
       <Card style={{ height: "300px", width: "300px", marginBottom: "20px" }}>

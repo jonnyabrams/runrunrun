@@ -3,7 +3,7 @@ import { RunnersState } from "../context/Context";
 
 const Filters = () => {
   const {
-    filterState: { sort, byStatus, searchQuery },
+    filterState: { sort, byConfirmed, byPending, searchQuery },
     filterDispatch,
   } = RunnersState();
   return (
@@ -16,6 +16,12 @@ const Filters = () => {
           name="group1"
           type="checkbox"
           id={`inline-1`}
+          onChange={() => 
+            filterDispatch({
+              type: "FILTER_BY_CONFIRMED"
+            })
+          }
+          checked={byConfirmed}
         />
       </span>
       <span>
@@ -25,6 +31,12 @@ const Filters = () => {
           name="group1"
           type="checkbox"
           id={`inline-2`}
+          onChange={() => 
+            filterDispatch({
+              type: "FILTER_BY_PENDING"
+            })
+          }
+          checked={byPending}
         />
       </span>
       <span>Sort by ticket price:</span>

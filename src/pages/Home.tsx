@@ -9,7 +9,7 @@ const Home = () => {
   const {
     runners,
     error,
-    filterState: { sort, byStatus, searchQuery },
+    filterState: { sort, byConfirmed, byPending, searchQuery },
   } = RunnersState();
 
   const transformRunners = () => {
@@ -23,10 +23,20 @@ const Home = () => {
       );
     }
 
+    if (byConfirmed) {
+      sortedRunners = sortedRunners.filter(
+        (runner: Runner) => runner.status === "CONFIRMED"
+      );
+    }
+
+    if (byPending) {
+      sortedRunners = sortedRunners.filter(
+        (runner: Runner) => runner.status === "PENDING"
+      );
+    }
+
     return sortedRunners;
   };
-
-  console.log(transformRunners());
 
   if (error) return error.message;
 

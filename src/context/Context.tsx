@@ -79,7 +79,8 @@ const Context = ({ children }: { children: any }) => {
   });
 
   const [filterState, filterDispatch] = useReducer(filterReducer, {
-    byStatus: false,
+    byConfirmed: false,
+    byPending: false,
     searchQuery: "",
   });
 
