@@ -1,16 +1,23 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import { RunnersState } from "../context/Context";
-import { RaceType, Runner } from "../typings";
+import { OrganiserType, RaceType, Runner } from "../typings";
 import { capitalise } from "../helpers";
+import { Button } from "react-bootstrap";
 
 const Race = () => {
   const { id } = useParams();
-  const { runners, races, error } = RunnersState();
+  const { runners, organisers, races, error } = RunnersState();
+  const navigate = useNavigate();
 
   const race = races.find((item: RaceType) => item.id === id);
+  const organiser = organisers.find(
+    (org: OrganiserType) => org.title === race.organiser
+  );
+
+  console.log(organiser)
 
   const raceStartlist = runners.filter(
     (runner: Runner) => runner.raceId === id
@@ -40,6 +47,9 @@ const Race = () => {
               {(runner.ticketPrice.value / 100).toFixed(2)}) - {runner.status}
             </p>
           ))}
+          <Button onClick={() => navigate(`/organiser/${organiser.id}`)}>
+            Go back
+          </Button>
         </>
       ) : (
         <CircularProgress />
