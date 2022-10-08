@@ -70,7 +70,7 @@ const Booking = () => {
           <span>Organiser ID:</span> {runner.organiserId}
         </p>
 
-        <button onClick={() => navigate("/")}>Return to home</button>
+        <button onClick={() => navigate("/bookings")}>Go back</button>
       </div>
 
       <div className="booking_container_right">
