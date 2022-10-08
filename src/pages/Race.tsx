@@ -48,7 +48,7 @@ const Race = () => {
             </p>
           ))}
           <Button onClick={() => navigate(`/organiser/${organiser.id}`)}>
-            Go back
+            Go to organiser page
           </Button>
         </>
       ) : (

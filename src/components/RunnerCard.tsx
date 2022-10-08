@@ -20,7 +20,7 @@ const RunnerCard = ({ runner }: Props) => {
             {runner.status}
           </Card.Subtitle>
           <Card.Text>£{(runner.ticketPrice.value / 100).toFixed(2)}</Card.Text>
-          <Card.Text>Race: {runner.raceTitle}</Card.Text>
+          <Card.Text>Race: <a href={`/race/${runner.raceId}`}>{runner.raceTitle}</a></Card.Text>
           <Card.Text>Event: {runner.eventTitle}</Card.Text>
           <Card.Text>Event Date: {moment(runner.raceStartDate).format("MMMM Do YYYY h:mm a")}</Card.Text>
           <Card.Link href={`/booking/${runner.id}`}><button>View more information</button></Card.Link>
