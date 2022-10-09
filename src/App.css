@@ -215,6 +215,14 @@ h3 {
   justify-content: center;
 }
 
+.cart {
+  display: flex;
+}
+
+.summary {
+  width: 30%;
+}
+
 /* Media Queries */
 @media (max-width: 771px) {
   .filters {

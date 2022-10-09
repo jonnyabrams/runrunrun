@@ -45,4 +45,4 @@ export type RaceType = {
   date: string;
   price: number;
   qty: number;
-}
+};
