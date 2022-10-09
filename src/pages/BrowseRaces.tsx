@@ -1,12 +1,14 @@
 import { useState } from "react";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 import RaceTicketCard from "../components/RaceTicketCard";
 import { RunnersState } from "../context/Context";
 import { RaceType } from "../typings";
 
 const BrowseRaces = () => {
-  const { races } = RunnersState();
+  const {
+    races,
+    cartState: { cart },
+  } = RunnersState();
   const [browseLatestFirst, setBrowseLatestFirst] = useState(false);
 
   const sortedRaces = browseLatestFirst
@@ -21,8 +23,7 @@ const BrowseRaces = () => {
 
   return (
     <div className="browse_events_container">
-      <h1>Your basket is empty</h1>
-      <ShoppingBasketIcon style={{ fontSize: "50px" }} />
+      <h1>Browse Upcoming Races</h1>
       <h2 onClick={() => setBrowseLatestFirst(!browseLatestFirst)}>
         {browseLatestFirst ? "Browse soonest first" : "Browse latest first"}
       </h2>
