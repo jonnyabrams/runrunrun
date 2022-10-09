@@ -11,9 +11,14 @@ import {
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { RunnersState } from "../context/Context";
+import CartDropdown from "./CartDropdown";
 
 const Header = () => {
-  const { dispatch, filterDispatch, cartState: {cart} } = RunnersState();
+  const {
+    filterDispatch,
+    cartState: { cart },
+    cartDispatch,
+  } = RunnersState();
 
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -42,10 +47,14 @@ const Header = () => {
               <Dropdown>
                 <Dropdown.Toggle variant="success">
                   <ShoppingCartIcon
-                    style={{ color: "white", height: "40px", width: "40px" }}
+                    style={{ color: "white", height: "30px", width: "30px" }}
                   />
                   <Badge bg="danger">{cart.length}</Badge>
                 </Dropdown.Toggle>
+
+                <Dropdown.Menu style={{ minWidth: 100 }}>
+                  <CartDropdown cart={cart} dispatch={cartDispatch} />
+                </Dropdown.Menu>
               </Dropdown>
             </>
           ) : (

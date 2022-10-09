@@ -194,6 +194,27 @@ h3 {
   justify-content: space-around;
 }
 
+.cart_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+  margin-bottom: 20px;
+}
+
+.cart_item_detail {
+  display: flex;
+  flex: 1;
+  padding: 0 5px;
+  flex-direction: column;
+}
+
+.cart_button_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Media Queries */
 @media (max-width: 771px) {
   .filters {

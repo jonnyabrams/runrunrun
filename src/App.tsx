@@ -9,6 +9,7 @@ import OrganiserLogin from "./pages/OrganiserLogin";
 import Race from "./pages/Race";
 import AllBookings from "./pages/AllBookings";
 import BrowseRaces from "./pages/BrowseRaces";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/race/:id" element={<Race />} />
           <Route path="/races" element={<BrowseRaces />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </Router>
