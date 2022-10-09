@@ -5,6 +5,7 @@ import moment from "moment";
 
 import { RunnersState } from "../context/Context";
 import { RaceType } from "../typings";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const {
@@ -84,10 +85,19 @@ const Cart = () => {
         <span style={{ fontWeight: 700, fontSize: 20 }}>
           Total: £{(total! / 100).toFixed(2)}
         </span>
-        <Button onClick={() => setPaymentMessage(true)} type="button" disabled={cart.length === 0}>
+        <Button
+          onClick={() => setPaymentMessage(true)}
+          type="button"
+          disabled={cart.length === 0}
+        >
           Proceed to checkout
         </Button>
-        {paymentMessage && <span>*Obviously you can't really buy anything here</span>}
+        {paymentMessage && (
+          <span>*Obviously you can't really buy anything here</span>
+        )}
+        <Link to="/races" style={{ color: "white", marginTop: "10px" }}>
+          or continue shopping
+        </Link>
       </div>
     </div>
   );
