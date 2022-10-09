@@ -14,8 +14,6 @@ const RaceTicketCard = ({ race }: Props) => {
     cartDispatch,
   } = RunnersState();
 
-  console.log(cart);
-
   return (
     <Card style={{ height: "300px", width: "300px", marginBottom: "20px" }}>
       <Card.Body>

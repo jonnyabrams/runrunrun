@@ -65,7 +65,7 @@ const Context = ({ children }: { children: any }) => {
     organiserId: runner.organiserId,
     date: runner.raceStartDate,
     price: runner.ticketPrice.value,
-    qty: 1,
+    qty: 0,
   }));
 
   let races = [...new Map(racesMap.map((race) => [race["id"], race])).values()];

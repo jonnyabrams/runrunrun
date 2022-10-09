@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
-import { Container, FormControl, Navbar, Button, Nav } from "react-bootstrap";
+import {
+  Container,
+  FormControl,
+  Navbar,
+  Button,
+  Nav,
+  Badge,
+  Dropdown,
+} from "react-bootstrap";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { RunnersState } from "../context/Context";
 
 const Header = () => {
-  const { dispatch, filterDispatch } = RunnersState();
+  const { dispatch, filterDispatch, cartState: {cart} } = RunnersState();
+
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
@@ -27,9 +37,22 @@ const Header = () => {
           />
         </Navbar.Text>
         <Nav>
-          <Link to="/login">
-            <Button className="btn btn-primary">Organiser Portal</Button>
-          </Link>
+          {window.location.pathname === "/races" ? (
+            <>
+              <Dropdown>
+                <Dropdown.Toggle variant="success">
+                  <ShoppingCartIcon
+                    style={{ color: "white", height: "40px", width: "40px" }}
+                  />
+                  <Badge bg="danger">{cart.length}</Badge>
+                </Dropdown.Toggle>
+              </Dropdown>
+            </>
+          ) : (
+            <Link to="/login">
+              <Button className="btn btn-primary">Organiser Portal</Button>
+            </Link>
+          )}
         </Nav>
       </Container>
     </Navbar>
