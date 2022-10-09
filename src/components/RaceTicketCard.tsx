@@ -35,6 +35,7 @@ const RaceTicketCard = ({ race }: Props) => {
         ) : (
           <Button
             onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: race })}
+            disabled={new Date(race.date) < new Date()}
           >
             Add to Cart
           </Button>

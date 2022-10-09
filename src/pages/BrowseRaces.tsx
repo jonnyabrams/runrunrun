@@ -13,16 +13,16 @@ const BrowseRaces = () => {
     cartState: { cart },
     cartDispatch,
   } = RunnersState();
-  const [browseLatestFirst, setBrowseLatestFirst] = useState(false);
+  const [browseSoonestFirst, setBrowseSoonestFirst] = useState(false);
 
-  const sortedRaces = browseLatestFirst
+  const sortedRaces = browseSoonestFirst
     ? races.sort(
         (a: RaceType, b: RaceType) =>
-          new Date(b.date).getTime() - new Date(a.date).getTime()
+          new Date(a.date).getTime() - new Date(b.date).getTime()
       )
     : races.sort(
         (a: RaceType, b: RaceType) =>
-          new Date(a.date).getTime() - new Date(b.date).getTime()
+          new Date(b.date).getTime() - new Date(a.date).getTime()
       );
 
   return (
@@ -45,8 +45,8 @@ const BrowseRaces = () => {
       ) : (
         <h1>Browse Upcoming Races</h1>
       )}
-      <h2 onClick={() => setBrowseLatestFirst(!browseLatestFirst)}>
-        {browseLatestFirst ? "Browse soonest first" : "Browse latest first"}
+      <h2 onClick={() => setBrowseSoonestFirst(!browseSoonestFirst)}>
+        {browseSoonestFirst ? "Browse latest first" : "Browse soonest first"}
       </h2>
       <div className="browse_events">
         {sortedRaces.map((race: RaceType, i: number) => (
