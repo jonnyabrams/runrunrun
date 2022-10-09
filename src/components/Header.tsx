@@ -41,7 +41,7 @@ const Header = () => {
 
         <Nav>
           <Link to="/login">
-            <Button className="btn btn-primary">Organiser Portal</Button>
+            <Button className="btn btn-primary">View All Bookings</Button>
           </Link>
         </Nav>
       </Container>
