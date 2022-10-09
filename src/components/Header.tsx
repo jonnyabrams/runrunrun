@@ -5,13 +5,9 @@ import {
   Navbar,
   Button,
   Nav,
-  Badge,
-  Dropdown,
 } from "react-bootstrap";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { RunnersState } from "../context/Context";
-import CartDropdown from "./CartDropdown";
 
 const Header = () => {
   const {
@@ -28,6 +24,7 @@ const Header = () => {
             RunRunRun
           </Link>
         </Navbar.Brand>
+
         <Navbar.Text className="search">
           <FormControl
             style={{ width: 500 }}
@@ -41,27 +38,11 @@ const Header = () => {
             }}
           />
         </Navbar.Text>
-        <Nav>
-          {window.location.pathname === "/races" ? (
-            <>
-              <Dropdown>
-                <Dropdown.Toggle variant="success">
-                  <ShoppingCartIcon
-                    style={{ color: "white", height: "30px", width: "30px" }}
-                  />
-                  <Badge bg="danger">{cart.length}</Badge>
-                </Dropdown.Toggle>
 
-                <Dropdown.Menu style={{ minWidth: 100 }}>
-                  <CartDropdown cart={cart} dispatch={cartDispatch} />
-                </Dropdown.Menu>
-              </Dropdown>
-            </>
-          ) : (
-            <Link to="/login">
-              <Button className="btn btn-primary">Organiser Portal</Button>
-            </Link>
-          )}
+        <Nav>
+          <Link to="/login">
+            <Button className="btn btn-primary">Organiser Portal</Button>
+          </Link>
         </Nav>
       </Container>
     </Navbar>

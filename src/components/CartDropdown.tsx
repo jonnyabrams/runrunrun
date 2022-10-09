@@ -30,7 +30,7 @@ const CartDropdown = ({ cart, dispatch }: Props) => {
           ))}
           <div className="cart_button_container">
             <Link to="/cart">
-              <Button style={{ width: "80%", margin: "0 10px", fontSize: "15px" }}>
+              <Button style={{ width: "90%", margin: "0 10px", fontSize: "15px" }}>
                 Go to cart
               </Button>
             </Link>

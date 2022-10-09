@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { Badge, Dropdown } from "react-bootstrap";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import RaceTicketCard from "../components/RaceTicketCard";
+import CartDropdown from "../components/CartDropdown";
 import { RunnersState } from "../context/Context";
 import { RaceType } from "../typings";
 
@@ -8,6 +11,7 @@ const BrowseRaces = () => {
   const {
     races,
     cartState: { cart },
+    cartDispatch,
   } = RunnersState();
   const [browseLatestFirst, setBrowseLatestFirst] = useState(false);
 
@@ -23,7 +27,24 @@ const BrowseRaces = () => {
 
   return (
     <div className="browse_events_container">
-      <h1>Browse Upcoming Races</h1>
+      {cart.length > 0 ? (
+        <h1>
+          <Dropdown>
+            <Dropdown.Toggle variant="success">
+              <ShoppingCartIcon
+                style={{ color: "white", height: "30px", width: "30px" }}
+              />
+              <Badge bg="danger">{cart.length}</Badge>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu style={{ minWidth: 200 }}>
+              <CartDropdown cart={cart} dispatch={cartDispatch} />
+            </Dropdown.Menu>
+          </Dropdown>
+        </h1>
+      ) : (
+        <h1>Browse Upcoming Races</h1>
+      )}
       <h2 onClick={() => setBrowseLatestFirst(!browseLatestFirst)}>
         {browseLatestFirst ? "Browse soonest first" : "Browse latest first"}
       </h2>
