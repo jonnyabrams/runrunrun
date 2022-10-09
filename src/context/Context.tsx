@@ -6,8 +6,8 @@ import {
   useState,
 } from "react";
 
-import { Runner } from "../typings";
-import { runnersReducer, filterReducer } from "./Reducers";
+import { RaceType, Runner } from "../typings";
+import { runnersReducer, filterReducer, cartReducer } from "./Reducers";
 
 const Runners = createContext<any>(null);
 
@@ -65,6 +65,7 @@ const Context = ({ children }: { children: any }) => {
     organiserId: runner.organiserId,
     date: runner.raceStartDate,
     price: runner.ticketPrice.value,
+    qty: 1,
   }));
 
   let races = [...new Map(racesMap.map((race) => [race["id"], race])).values()];
@@ -85,6 +86,12 @@ const Context = ({ children }: { children: any }) => {
     sort: "",
   });
 
+  const cart: RaceType[] = [];
+
+  const [cartState, cartDispatch] = useReducer(cartReducer, {
+    cart,
+  });
+
   return (
     <Runners.Provider
       value={{
@@ -92,10 +99,12 @@ const Context = ({ children }: { children: any }) => {
         organisers,
         events,
         races,
+        dispatch,
         state,
         filterState,
         filterDispatch,
-        dispatch,
+        cartState,
+        cartDispatch,
         error,
       }}
     >

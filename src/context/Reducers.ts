@@ -1,3 +1,5 @@
+import { RaceType } from "../typings";
+
 export const runnersReducer = (state: any, action: any) => {
   switch (action.type) {
     default:
@@ -26,3 +28,16 @@ export const filterReducer = (state: any, action: any) => {
       return state;
   }
 };
+
+export const cartReducer = (state: any, action: any) => {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      return { ...state, cart: [...state.cart, { ...action.payload, qty:1 }] }
+    case "REMOVE_FROM_CART":
+      return { ...state, cart: state.cart.filter((race: RaceType) => race.id !== action.payload.id) }
+    case "CHANGE_CART_QTY":
+      return { ...state, cart: state.cart.filter((race: RaceType) => race.id === action.payload.id ? race.qty = action.payload.qty : race.qty) }
+    default:
+      return state
+  }
+}
