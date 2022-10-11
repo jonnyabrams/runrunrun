@@ -18,6 +18,12 @@ Below the filters there's a button for customers that links them to a page where
 
 In the top right of the screen there's an Organiser Portal button, which clicks through to a dropdown selector featuring all of the events organisers. After selecting their own company, each organiser can see their overall takings and a list of all their events, each of which contains a link to each race startlist. Total takings are also broken down and displayed by each individual event and race.
 
+## Instructions for Use
+
+1. Clone this repo and navigate into it from the terminal
+
+2. Run the command `npm start` and go to [http://localhost:3000/](http://localhost:3000/) in your browser
+
 ## Improvements I Would Like to Make
 
 With more time, I would like to have implemented the following:
