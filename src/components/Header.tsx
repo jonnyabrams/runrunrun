@@ -1,20 +1,10 @@
 import { Link } from "react-router-dom";
-import {
-  Container,
-  FormControl,
-  Navbar,
-  Button,
-  Nav,
-} from "react-bootstrap";
+import { Container, FormControl, Navbar, Button, Nav } from "react-bootstrap";
 
 import { RunnersState } from "../context/Context";
 
 const Header = () => {
-  const {
-    filterDispatch,
-    cartState: { cart },
-    cartDispatch,
-  } = RunnersState();
+  const { filterDispatch } = RunnersState();
 
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -41,7 +31,7 @@ const Header = () => {
 
         <Nav>
           <Link to="/login">
-            <Button className="btn btn-primary">View All Bookings</Button>
+            <Button className="btn btn-primary">Organiser Portal</Button>
           </Link>
         </Nav>
       </Container>
