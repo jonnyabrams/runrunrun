@@ -30,7 +30,7 @@ In the top right of the screen there's an Organiser Portal button, which clicks 
 
 2. Run the command `npm start` and go to [http://localhost:3000/](http://localhost:3000/) in your browser
 
-## Improvements I Would Like to Make
+## Improvements I Would Like to Make
 
 With more time, I would like to have implemented the following:
 
