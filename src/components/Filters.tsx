@@ -1,4 +1,6 @@
 import { Button, Form, FormCheck } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 import { RunnersState } from "../context/Context";
 
 const Filters = () => {
@@ -6,6 +8,9 @@ const Filters = () => {
     filterState: { sort, byConfirmed, byPending },
     filterDispatch,
   } = RunnersState();
+
+  const navigate = useNavigate();
+
   return (
     <div className="filters">
       <span>Filter by status:</span>
@@ -84,6 +89,10 @@ const Filters = () => {
       >
         Clear Filters
       </Button>
+
+      <button onClick={() => navigate("/races")} className="customer_button">
+        Are you a customer? Click here to buy tickets!
+      </button>
     </div>
   );
 };

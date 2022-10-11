@@ -223,6 +223,18 @@ h3 {
   width: 30%;
 }
 
+.customer_button {
+  margin-top: 50px;
+  color: white;
+  background-color: rgb(10, 149, 10);
+  border-radius: 10px;
+}
+
+.customer_button:hover {
+  color: rgb(10, 149, 10);
+  background-color: white;
+}
+
 /* Media Queries */
 @media (max-width: 771px) {
   .filters {
